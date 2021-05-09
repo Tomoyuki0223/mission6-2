@@ -1,0 +1,137 @@
+body {
+    overflow-y: hidden;
+    margin: 0px;
+}
+
+.left {
+    width: 120px;
+    height: 100vh;
+    padding-left: 10px;
+    padding-top: 10px;
+    overflow-y: scroll;
+}
+
+.left a {
+    text-decoration: none;
+}
+
+.left a:hover {
+    text-decoration: underline;
+}
+
+.boardAll {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 0px;
+    color: red;
+}
+
+.boardEnd {
+    padding-top: 30px;
+    font-size: 13px;
+    color: red;
+}
+
+.qAnda h3 {
+    margin-bottom: 0px;
+}
+
+.qAnda ul {
+    margin-top: 0px;
+}
+
+.qAnda p {
+    padding-left: 20px;
+    margin-top: 0px;
+}
+
+.right {
+    position: absolute;
+    top: 0px;
+    left: 150px;
+    height: 100%;
+    width: calc(100% - 150px);
+
+}
+
+.right h1 {
+    text-align: center;
+}
+
+.right h4 {
+    text-align: right;
+    font-weight: normal;
+    margin-top: 5px;
+}
+
+.fa {
+    margin-right: 5px;
+}
+
+.howTo li {
+    padding: 10px 0;
+}
+
+.user {
+    text-align: center;
+}
+
+.user p {
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 50px;
+    margin-bottom: 0px;
+}
+
+.attention {
+    color: red;
+    margin: 5px;
+}
+
+input {
+    width: 350px;
+    padding: 10px;
+    margin-top: 20px;
+    font-size: 20px;
+    border: 1px solid #808080;
+    box-sizing: border-box;
+}
+
+.btn,button {
+    width: 320px;
+    height: 40px;
+    margin: 20px 0 10px 0;
+    font-size: 15px;
+    color: white;
+    display: inline-block;
+    opacity: 0.8;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: #228b22;
+    border: 1px solid #228b22;
+    box-sizing: border-box;
+}
+
+.btn {
+    padding: 10px 0;
+    line-height: 20px;
+}
+
+button:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.btn:hover {
+    opacity: 1;
+}
+
+.optional {
+    margin: 0 20px;
+    text-decoration: none;
+}
+
+.optional:hover {
+    text-decoration: underline;
+}
