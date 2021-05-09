@@ -1,0 +1,125 @@
+.container {
+    height: 25px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    position: fixed;
+    top: 0px;
+}
+
+.container a {
+    line-height: 25px;
+    padding: 0 10px;
+    color: #0000FF;
+    text-decoration: none;
+}
+
+.container a:hover {
+    color: red;
+    text-decoration: underline;
+}
+
+.se {
+    position: absolute;
+    right: 0px;
+    color: black;
+    pointer-events: none;
+}
+
+.main {    
+    height: 100%;
+    width: 100%;
+    padding: 25px 0 100px 0;
+    background : linear-gradient(60deg, 
+                               red,
+                               orange,
+                               yellow,
+                               green,
+                               aqua,
+                               blue,
+                               purple);
+}
+
+.title h1 {
+    text-align: center;
+    padding-top: 20px;
+}
+
+.index {
+    height: 100%;
+    width: 90%;
+    margin: 0px auto;
+    padding: 20px;
+    background-color: #fffafa;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+.topTitle {
+    color: white;
+    background-color: #800080;
+    display: inline-block;
+    margin-block: 5px 20px;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.suleTitle {
+    position: relative;
+    height: 300px;
+    padding: 10px;
+    margin: 0 auto;
+    border-radius: 10px;
+    background-color: #f5f5f5;
+    overflow-y: scroll;
+}
+
+.newSureMake {
+    height: 100%;
+    width: 90%;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fffafa;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+.heading {
+    margin-bottom: 0px;
+}
+
+input,textarea {
+    width: 300px;
+    height: 100%;
+    padding: 5px;
+    margin-bottom: 0px;
+    font-size: 15px;
+    border: 1px solid #808080;
+}
+
+.newSureBoard {
+    width: 90%;
+    height: 100%;
+    padding: 30px;
+    margin: 0px auto;
+    background-color: #fffafa;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+.newSureBoard h1 {
+    color: red;
+    margin-top: 0px;
+}
+
+.inf {
+    display:inline;
+}
+
+.submitName {
+    color: green;
+}
+
+.comment {
+    padding-left: 20px;
+    margin-top: 0px;
+}
