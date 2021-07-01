@@ -11,9 +11,9 @@ if(isset($_SESSION['EMAIL'])) {
 }
 
 // データベースに接続
-$dsn = 'mysql:dbname=tb221121db;host=localhost';
-$user = 'tb-221121db';
-$password = 'nEbCefpzjx';
+$dsn = 'データベース名';
+$user = 'ユーザー名';
+$password = 'パスワード';
 $pdo = new PDO($dsn, $user, $password, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
 
 require_once('boardName.php');
