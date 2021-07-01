@@ -1,74 +1,75 @@
 <?php
-    require 'db.php';
-    require_once('boardName.php');
-    session_start();
-    if(isset($_SESSION['EMAIL'])) {
-        $userinf = "{$_SESSION['EMAIL']}さん，ようこそ！";
-    } else {
-        header("Location: newMake.php");
-        exit();
-    }
-    
-    $sql = "SELECT * FROM {$_GET['tbname']}title";
-	$stmt = $pdo->query($sql);
-	$results = $stmt->fetchAll();
-	foreach ($results as $row){
-		if($_GET['title'] == $row['sureName']) {
-            $id = $row['id'];
-        }
-	}
+// セッションの開始
+session_start();
 
-    /*データベース内にテーブルを作成*/
-    $sql = "CREATE TABLE IF NOT EXISTS {$_GET['tbname']}{$id}"
-	." ("
-	. "id INT AUTO_INCREMENT PRIMARY KEY,"/*自動で登録されていうナンバリング*/
-	. "name char(32),"/*名前を入れる。文字列、半角英数で32文字*/
-	. "comment TEXT,"/*コメントを入れる。文字列、長めの文章も入る*/
-	. "date DateTime"/*投稿日時を入れる。文字列、長めの文章も入る*/
-	.");";
-	$stmt = $pdo->query($sql);
-	/*データベース内にテーブルを作成終了*/
+// ログイン中でなければアカウント作成へ移動
+if(isset($_SESSION['EMAIL'])) {
+    $userinf = "{$_SESSION['EMAIL']}さん，ようこそ！";
+} else {
+    header("Location: newMake.php");
+    exit();
+}
 
-    if(isset($_POST["submit"])) {/*送信ボタンが押されたとき*/
-        $name = $_POST["name"];/*入力した名前*/
-        $comment = $_POST["comment"];/*変更したいコメント*/ 
-        if(!empty($name) && !empty($comment)){/*空欄があったらダメ*/
-            /*データを入力（データレコードの挿入）*/
-            $sql = $pdo -> prepare("INSERT INTO {$_GET['tbname']}{$id} (name, comment,date) VALUES (:name, :comment, :date)");
-            $sql -> bindParam(':name', $name, PDO::PARAM_STR);
-            $sql -> bindParam(':comment', $comment, PDO::PARAM_STR);
-            $sql -> bindParam(':date', $date, PDO::PARAM_STR);
-            $date = date("Y/m/d H:i:s");
-            $sql -> execute();
-            /*データ入力完了*/
-        }
+// データベースに接続
+$dsn = 'mysql:dbname=tb221121db;host=localhost';
+$user = 'tb-221121db';
+$password = 'nEbCefpzjx';
+$pdo = new PDO($dsn, $user, $password, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
+
+require_once('boardName.php');
+
+// 開いているスレの番号を抽出する
+$sum = $_GET['tbname'] . $_GET['sureid'];
+
+// 書き込みを記録するテーブルを作成
+$sql = "CREATE TABLE IF NOT EXISTS {$sum} (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name TEXT,
+    comment TEXT,
+    date DateTime
+)";
+$stmt = $pdo->query($sql);
+
+// データを書き込む
+if(isset($_POST["submit"])) {
+    $comment = $_POST["comment"];
+    // 空欄がない場合にはコメントなどをDBに書き込む
+    if(!empty($_POST['name']) && !empty($_POST['comment'])){
+        $sql = $pdo -> prepare("INSERT INTO {$sum}(name, comment,date) VALUES (:name, :comment, :date)");
+        $sql -> bindParam(':name', $_POST['name'], PDO::PARAM_STR);
+        $sql -> bindParam(':comment', $_POST['comment'], PDO::PARAM_STR);
+        $sql -> bindParam(':date', $date, PDO::PARAM_STR);
+        $date = date("Y/m/d H:i:s");
+        $sql -> execute();
     }
+}
 ?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <title><?php echo $_GET['title'] ?></title>
-    <link rel="stylesheet" href="stylesheet2.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<meta charset="UTF-8">
+<title><?php echo $_GET['title'] ?></title>
+<link rel="stylesheet" href="stylesheet2.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
 <body>
 <header>
-  <div class="container">
-    <a href="home.php" class="home">TECH-BASE掲示板</a>
-    |
-    <a href="https://twitter.com/tb_221121" target="_blank"><span class="fa fa-twitter"></span>twitter</a>
-    |
-    <a href="seOut.php">ログアウト</a>
-    <a class="se"><?php echo $userinf ?></a>
-  </div>
+<div class="container">
+<a href="home.php" class="home">TECH-BASE掲示板</a>
+|
+<a href="https://twitter.com/ieso_i" target="_blank"><span class="fa fa-twitter"></span>twitter</a>
+|
+<a href="seOut.php">ログアウト</a>
+<a class="se"><?php echo $userinf ?></a>
+</div>
 </header>
 <div class="main">
     <div class="newSureBoard">
     <h1><?php echo $_GET['title'] ?></h1>
 <?php
-    /*入力したデータレコードを抽出し、表示する*/
-    $sql = "SELECT * FROM {$_GET['tbname']}{$id}";
+
+    // 書き込んだコメントなどを表示する！
+    $sql = "SELECT * FROM {$sum}";
     $stmt = $pdo->query($sql);
     $results = $stmt->fetchAll();
     foreach ($results as $row): 
