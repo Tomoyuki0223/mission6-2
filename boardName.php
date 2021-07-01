@@ -1,5 +1,4 @@
 <?php
-
 class Name {
     protected $name;
     protected $tbName;
@@ -17,7 +16,6 @@ class Name {
         return $this->tbName;
     }
 }
-
 $boardName[0] = new Name('地震','earthquake');
 $boardName[1] = new Name('COVID-19','NewCoronavirus');
 $boardName[2] = new Name('星のカービイ','KirbysDreamLand');
@@ -63,6 +61,5 @@ $boardName[41] = new Name('PC等','pc');
 $boardName[42] = new Name('ネット関係','InternetRelations');
 $boardName[43] = new Name('雑談系2','chat2');
 $boardName[44] = new Name('大使館','embassy');
-$boardName[45] = new Name('荒野','wilderness');
-     
+$boardName[45] = new Name('荒野','wilderness');  
 ?>
