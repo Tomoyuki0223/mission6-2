@@ -17,7 +17,7 @@ if(!empty($_POST["newNumber"]) && !empty($_POST["newPass"])) {
   $results = $stmt->fetchAll();
   foreach ($results as $row){
 
-    // 認証番号が同じ場合に登録する！
+    // 認証番号が同じ場合に登録する
     if($row['solveNumber'] == $_POST["newNumber"]) {
       $sql = $pdo -> prepare("INSERT INTO mission6_2_member (mailadress,password,date) VALUES (:mailadress,:password,:date)");
       $sql -> bindParam(':mailadress', $mailadress, PDO::PARAM_STR);
