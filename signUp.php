@@ -36,6 +36,7 @@ if(!empty($_POST["loginEmail"]) && !empty($_POST["loginPass"])) {
 }
 include($_SERVER['DOCUMENT_ROOT']."/mission6_2/left.php");
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
