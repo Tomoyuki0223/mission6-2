@@ -37,7 +37,7 @@ $stmt = $pdo->query($sql);
 
 // メールアドレスが入力されている場合
 if(!empty($_POST["newEmail"])) {
-  // 同じメールアドレスが登録されていないかを確認
+  // 同じメールアドレスが登録されていないか確認
   $sql = 'SELECT * FROM mission6_2_member';
   $stmt = $pdo->query($sql);
   $results = $stmt->fetchAll();
