@@ -7,6 +7,7 @@ $pdo = new PDO($dsn, $user, $password, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_W
 include($_SERVER['DOCUMENT_ROOT']."/mission6_2/left.php");
 ?>
 <!DOCTYPE html>
+
 <html>
 <head>
 <meta charset="utf-8">
