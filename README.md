@@ -14,7 +14,7 @@ missino6-2は，[TECH-BASEインターン](https://engineer-shukatu.jp/techbase/
 - newMake.php：新規登録の画面
 - newMakeCom.php：新規登録完了画面
 - newMakeMail.php：認証番号をメールで送信した後の認証番号入力画面
-- question.php：掲示板の説明など．**必ず見てください！**
+- question.php：掲示板の説明など．
 - seCom.php：すでにログインしている場合に表示される画面
 - seOut.php：ログアウトした後の画面
 - signUp.php：ログインする際の画面
