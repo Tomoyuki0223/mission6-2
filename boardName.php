@@ -1,4 +1,5 @@
 <?php
+
 class Name {
     protected $name;
     protected $tbName;
