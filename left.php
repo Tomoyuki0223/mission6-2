@@ -7,6 +7,7 @@
   <a href="question.php">Q&A</a><br>
   <a href="https://twitter.com/ieso_i" target="_blank"><span class="fa fa-twitter"></span>twitter</a><br>
 </div>
+  
 <!-- 板のテーマを表示 -->
 <div class="board">
   <p class="boardAll">板一覧</p>
