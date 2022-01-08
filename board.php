@@ -18,7 +18,7 @@ $user = 'ユーザー名';
 $password = 'パスワード';
 $pdo = new PDO($dsn, $user, $password, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
 
-// 初めて開いた場合はスレ名を記録するテーブルを作成
+// 初めて開いた場合はスレの名前を記録するテーブルを作成
 $sql = "CREATE TABLE IF NOT EXISTS {$_GET['tbname']}title (
   id INT AUTO_INCREMENT PRIMARY KEY,
   sureName TEXT
