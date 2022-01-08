@@ -68,7 +68,7 @@ if(isset($_POST["submit"])) {
     <h1><?php echo $_GET['title'] ?></h1>
 <?php
 
-    // 書き込んだコメントなどを表示する！
+    // 書き込んだコメントなどを表示する
     $sql = "SELECT * FROM {$sum}";
     $stmt = $pdo->query($sql);
     $results = $stmt->fetchAll();
