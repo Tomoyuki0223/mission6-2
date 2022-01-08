@@ -5,6 +5,7 @@
         $params["path"], $params["domain"],
         $params["secure"], $params["httponly"]
     );
+
     session_destroy();
     header("Location: home.php");
     exit();
